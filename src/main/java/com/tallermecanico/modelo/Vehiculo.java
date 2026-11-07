@@ -1,8 +1,5 @@
 package com.tallermecanico.modelo;
 
-/**
- * Entidad Vehiculo (tabla vehiculos). Cada vehículo pertenece a un cliente.
- */
 public class Vehiculo {
 
     private int idVehiculo;
