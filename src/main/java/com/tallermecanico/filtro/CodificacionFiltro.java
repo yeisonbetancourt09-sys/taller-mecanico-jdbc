@@ -9,9 +9,6 @@ import jakarta.servlet.annotation.WebFilter;
 
 import java.io.IOException;
 
-/**
- * Fuerza UTF-8 en todas las peticiones para que tildes y ñ se guarden bien.
- */
 @WebFilter(filterName = "CodificacionFiltro", urlPatterns = "/*")
 public class CodificacionFiltro implements Filter {
 
