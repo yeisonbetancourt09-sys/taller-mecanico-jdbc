@@ -1,0 +1,25 @@
+<%-- Fragmento reutilizable: encabezado y menú. Se incluye con la directiva include. --%>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><c:out value="${titulo}"/> | Taller Mecánico</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilos.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="marca">🔧 Taller <small>Mecánico</small></span>
+    <nav>
+      <a href="${pageContext.request.contextPath}/inicio" class="${activo == 'inicio' ? 'activo' : ''}">Inicio</a>
+      <a href="${pageContext.request.contextPath}/clientes" class="${activo == 'clientes' ? 'activo' : ''}">Clientes</a>
+      <a href="${pageContext.request.contextPath}/vehiculos" class="${activo == 'vehiculos' ? 'activo' : ''}">Vehículos</a>
+    </nav>
+  </header>
+  <main class="contenido">
+    <%-- Mensaje temporal (guardado en sesión por el servlet antes del redirect) --%>
+    <c:if test="${not empty sessionScope.mensaje}">
+      <div class="alerta alerta-${sessionScope.tipoMensaje}"><c:out value="${sessionScope.mensaje}"/></div>
+      <c:remove var="mensaje" scope="session"/>
+      <c:remove var="tipoMensaje" scope="session"/>
+    </c:if>

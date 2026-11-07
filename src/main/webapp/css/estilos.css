@@ -1,0 +1,51 @@
+:root{
+  --azul:#1d4ed8; --azul-oscuro:#1e3a8a; --azul-claro:#eff6ff; --borde:#dbe3f0;
+  --texto:#1e293b; --gris:#64748b; --rojo:#dc2626; --verde:#16a34a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#f8fafc;color:var(--texto)}
+.topbar{display:flex;align-items:center;gap:32px;padding:0 28px;height:60px;
+  background:linear-gradient(90deg,var(--azul-oscuro),var(--azul));color:#fff}
+.marca{font-weight:700;font-size:18px}
+.marca small{font-weight:400;opacity:.85}
+.topbar nav{display:flex;gap:6px}
+.topbar nav a{color:#dbeafe;text-decoration:none;padding:8px 14px;border-radius:8px;font-size:15px}
+.topbar nav a:hover,.topbar nav a.activo{background:rgba(255,255,255,.18);color:#fff}
+.contenido{max-width:1100px;margin:28px auto;padding:0 20px;min-height:70vh}
+h2{margin:0 0 18px;color:var(--azul-oscuro)}
+.barra{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.barra h2{margin:0;margin-right:auto}
+.buscador{display:flex;gap:8px}
+input,select{padding:9px 12px;border:1px solid var(--borde);border-radius:8px;font-size:14px;background:#fff;width:100%}
+.buscador input,.buscador select{width:auto;min-width:190px}
+input:focus,select:focus{outline:2px solid #bfdbfe;border-color:var(--azul)}
+.btn{display:inline-block;padding:9px 16px;border:0;border-radius:8px;font-size:14px;cursor:pointer;
+  text-decoration:none;font-family:inherit}
+.btn-primary{background:var(--azul);color:#fff}.btn-primary:hover{background:var(--azul-oscuro)}
+.btn-sec{background:#fff;color:var(--azul);border:1px solid var(--borde)}.btn-sec:hover{background:var(--azul-claro)}
+.btn-peligro{background:#fee2e2;color:var(--rojo)}.btn-peligro:hover{background:#fecaca}
+.btn-sm{padding:6px 11px;font-size:13px}
+.tabla-envoltura{background:#fff;border:1px solid var(--borde);border-radius:12px;overflow-x:auto}
+.tabla{width:100%;border-collapse:collapse;font-size:14px}
+.tabla th{background:var(--azul-claro);color:var(--azul-oscuro);text-align:left;padding:12px 14px;font-weight:600}
+.tabla td{padding:11px 14px;border-top:1px solid var(--borde)}
+.tabla tr:hover td{background:#f8fbff}
+.acciones{white-space:nowrap}.en-linea{display:inline}
+.vacio{text-align:center;color:var(--gris);padding:30px!important}
+.placa{background:#fef9c3;border:1px solid #facc15;border-radius:6px;padding:2px 8px;font-weight:700;letter-spacing:1px}
+.formulario{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#fff;
+  border:1px solid var(--borde);border-radius:12px;padding:24px;max-width:760px}
+.campo label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--gris)}
+.campo-completo,.botones{grid-column:1/-1}
+.botones{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
+.alerta{padding:12px 16px;border-radius:10px;margin-bottom:18px;font-size:14px}
+.alerta-exito{background:#dcfce7;color:#166534}
+.alerta-error{background:#fee2e2;color:#991b1b}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:22px}
+.tarjeta{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.tarjeta .etiqueta{color:var(--gris);font-size:14px}
+.tarjeta .valor{font-size:38px;font-weight:700;color:var(--azul)}
+.tarjeta a{color:var(--azul);text-decoration:none;font-size:14px}
+.acciones-rapidas{display:flex;gap:10px}
+.pie{text-align:center;color:var(--gris);font-size:13px;padding:22px}
+@media(max-width:640px){.formulario{grid-template-columns:1fr}.topbar{gap:12px;padding:0 12px}}

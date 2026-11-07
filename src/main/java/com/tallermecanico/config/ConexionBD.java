@@ -14,6 +14,7 @@ import java.util.Properties;
  */
 public final class ConexionBD {
 
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String ARCHIVO_PROPIEDADES = "db.properties";
     private static final Properties PROPIEDADES = cargarPropiedades();
 
@@ -37,10 +38,13 @@ public final class ConexionBD {
     /** Retorna una nueva conexión; quien la reciba debe cerrarla (try-with-resources). */
     public static Connection obtenerConexion() {
         try {
+            Class.forName(DRIVER);
             return DriverManager.getConnection(
                     PROPIEDADES.getProperty("db.url"),
                     PROPIEDADES.getProperty("db.usuario"),
                     PROPIEDADES.getProperty("db.clave"));
+        } catch (ClassNotFoundException e) {
+            throw new AccesoDatosException("No se encontró el driver JDBC de MySQL", e);
         } catch (SQLException e) {
             throw new AccesoDatosException("No fue posible conectar con la base de datos", e);
         }

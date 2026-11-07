@@ -1,0 +1,8 @@
+  </main>
+  <%-- Scriptlet y expresión JSP (elementos clásicos de scripting) --%>
+  <% String fechaHoy = java.time.LocalDate.now().toString(); %>
+  <footer class="pie">
+    Taller Mecánico · Módulo Clientes y Vehículos · <%= fechaHoy %>
+  </footer>
+</body>
+</html>
