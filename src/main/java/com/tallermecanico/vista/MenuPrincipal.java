@@ -10,9 +10,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-/**
- * Interfaz de consola del módulo Clientes y Vehículos (CRUD completo).
- */
 public class MenuPrincipal {
 
     private final Scanner lector = new Scanner(System.in);
@@ -39,8 +36,6 @@ public class MenuPrincipal {
             }
         } while (opcion != 0);
     }
-
-    // ---------------------------- CLIENTES ----------------------------
 
     private void menuClientes() {
         int opcion;
@@ -103,8 +98,6 @@ public class MenuPrincipal {
         cliente.setDireccion(leerTexto("Dirección (opcional): "));
         return cliente;
     }
-
-    // ---------------------------- VEHÍCULOS ----------------------------
 
     private void menuVehiculos() {
         int opcion;
@@ -179,8 +172,6 @@ public class MenuPrincipal {
         vehiculo.setIdCliente(leerEntero("Id del cliente propietario: "));
         return vehiculo;
     }
-
-    // ---------------------------- UTILIDADES ----------------------------
 
     private String leerTexto(String mensaje) {
         System.out.print(mensaje);
