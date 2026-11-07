@@ -9,9 +9,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
- * Administra la conexión JDBC a MySQL leyendo los datos de db.properties.
- */
 public final class ConexionBD {
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -35,7 +32,6 @@ public final class ConexionBD {
         return propiedades;
     }
 
-    /** Retorna una nueva conexión; quien la reciba debe cerrarla (try-with-resources). */
     public static Connection obtenerConexion() {
         try {
             Class.forName(DRIVER);
