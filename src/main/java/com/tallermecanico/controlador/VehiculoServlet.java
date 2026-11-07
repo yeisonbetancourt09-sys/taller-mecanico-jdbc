@@ -18,12 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Controlador del módulo de vehículos.
- *
- * GET  : listar (con filtro opcional por cliente), formulario nuevo/editar.
- * POST : guardar (insertar o actualizar) y eliminar.
- */
 @WebServlet(name = "VehiculoServlet", urlPatterns = "/vehiculos")
 public class VehiculoServlet extends HttpServlet {
 
@@ -65,8 +59,6 @@ public class VehiculoServlet extends HttpServlet {
         }
     }
 
-    // ------------------------- acciones GET -------------------------
-
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idCliente = convertirAEntero(request.getParameter("idCliente"));
@@ -105,8 +97,6 @@ public class VehiculoServlet extends HttpServlet {
         request.getRequestDispatcher(VISTA_FORMULARIO).forward(request, response);
     }
 
-    // ------------------------- acciones POST -------------------------
-
     private void guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Vehiculo vehiculo = leerVehiculo(request);
@@ -138,8 +128,6 @@ public class VehiculoServlet extends HttpServlet {
         }
         response.sendRedirect(request.getContextPath() + "/vehiculos");
     }
-
-    // ------------------------- utilidades -------------------------
 
     private Vehiculo leerVehiculo(HttpServletRequest request) {
         Vehiculo vehiculo = new Vehiculo();
