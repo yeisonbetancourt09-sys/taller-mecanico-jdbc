@@ -10,9 +10,6 @@ import java.time.Year;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Reglas de negocio y validaciones del módulo de vehículos.
- */
 public class VehiculoServicio {
 
     private static final int ANIO_MINIMO = 1950;
