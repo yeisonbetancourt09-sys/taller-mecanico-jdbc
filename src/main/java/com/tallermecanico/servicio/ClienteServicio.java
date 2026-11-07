@@ -9,9 +9,6 @@ import com.tallermecanico.modelo.Cliente;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Reglas de negocio y validaciones del módulo de clientes.
- */
 public class ClienteServicio {
 
     private final ClienteDao clienteDao;
@@ -48,7 +45,6 @@ public class ClienteServicio {
     }
 
     public boolean eliminarCliente(int idCliente) {
-        // La BD borra en cascada los vehículos del cliente; se exige eliminarlos primero a propósito.
         if (!vehiculoDao.listarPorCliente(idCliente).isEmpty()) {
             throw new IllegalArgumentException(
                     "El cliente tiene vehículos registrados; elimínelos primero para poder borrarlo");
