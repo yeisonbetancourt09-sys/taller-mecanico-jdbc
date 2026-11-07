@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -114,9 +115,11 @@ public class ClienteDaoJdbc implements ClienteDao {
              PreparedStatement sentencia = conexion.prepareStatement(SQL_ELIMINAR)) {
             sentencia.setInt(1, id);
             return sentencia.executeUpdate() > 0;
-        } catch (SQLException e) {
+        } catch (SQLIntegrityConstraintViolationException e) {
             throw new AccesoDatosException(
-                    "No se pudo eliminar el cliente (verifique que no tenga vehículos asociados)", e);
+                    "No se puede eliminar el cliente porque sus vehículos tienen órdenes de trabajo asociadas", e);
+        } catch (SQLException e) {
+            throw new AccesoDatosException("Error al eliminar el cliente", e);
         }
     }
 

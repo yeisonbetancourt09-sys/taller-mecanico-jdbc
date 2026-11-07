@@ -2,6 +2,8 @@ package com.tallermecanico.servicio;
 
 import com.tallermecanico.dao.ClienteDao;
 import com.tallermecanico.dao.ClienteDaoJdbc;
+import com.tallermecanico.dao.VehiculoDao;
+import com.tallermecanico.dao.VehiculoDaoJdbc;
 import com.tallermecanico.modelo.Cliente;
 
 import java.util.List;
@@ -13,9 +15,11 @@ import java.util.Optional;
 public class ClienteServicio {
 
     private final ClienteDao clienteDao;
+    private final VehiculoDao vehiculoDao;
 
     public ClienteServicio() {
         this.clienteDao = new ClienteDaoJdbc();
+        this.vehiculoDao = new VehiculoDaoJdbc();
     }
 
     public int registrarCliente(Cliente cliente) {
@@ -44,6 +48,11 @@ public class ClienteServicio {
     }
 
     public boolean eliminarCliente(int idCliente) {
+        // La BD borra en cascada los vehículos del cliente; se exige eliminarlos primero a propósito.
+        if (!vehiculoDao.listarPorCliente(idCliente).isEmpty()) {
+            throw new IllegalArgumentException(
+                    "El cliente tiene vehículos registrados; elimínelos primero para poder borrarlo");
+        }
         return clienteDao.eliminar(idCliente);
     }
 

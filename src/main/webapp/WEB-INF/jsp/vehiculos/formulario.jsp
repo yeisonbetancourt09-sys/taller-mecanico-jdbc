@@ -26,7 +26,7 @@
 
       <div class="campo">
         <label for="placa">Placa *</label>
-        <input type="text" id="placa" name="placa" maxlength="10" required
+        <input type="text" id="placa" name="placa" maxlength="15" required
                value="<c:out value='${vehiculo.placa}'/>">
       </div>
       <div class="campo">

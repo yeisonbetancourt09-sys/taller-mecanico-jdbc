@@ -122,7 +122,7 @@ public class ClienteServlet extends HttpServlet {
             } else {
                 registrarMensaje(request, "El cliente no existe", "error");
             }
-        } catch (AccesoDatosException e) {
+        } catch (IllegalArgumentException | AccesoDatosException e) {
             registrarMensaje(request, e.getMessage(), "error");
         }
         response.sendRedirect(request.getContextPath() + "/clientes");

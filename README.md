@@ -17,7 +17,7 @@ CRUD completo (insertar, consultar, actualizar, eliminar) con arquitectura en ca
 JDK 17+, Maven 3.8+, MySQL 8+, **Apache Tomcat 10.1 o superior** (Jakarta EE).
 
 ## Ejecución (aplicación web)
-1. Tener la base de datos en MySQL (o ejecutar `database/taller_mecanico.sql`).
+1. Tener la base `taller_mecanico` en MySQL. Si no existe, ejecutar `database/taller_mecanico.sql` (estructura y datos reales del proyecto).
 2. Ajustar URL, usuario y clave en `src/main/resources/db.properties`.
 3. `mvn clean package` genera `target/taller-mecanico.war`.
 4. Copiar el WAR a `webapps/` de Tomcat (o desplegarlo desde NetBeans / Eclipse / IntelliJ).
