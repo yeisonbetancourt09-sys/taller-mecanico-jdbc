@@ -14,12 +14,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Controlador del módulo de clientes.
- *
- * GET  (consultas, no modifican datos): listar, buscar por documento, mostrar formulario nuevo/editar.
- * POST (modifican datos): guardar (insertar o actualizar) y eliminar.
- */
 @WebServlet(name = "ClienteServlet", urlPatterns = "/clientes")
 public class ClienteServlet extends HttpServlet {
 
@@ -59,8 +53,6 @@ public class ClienteServlet extends HttpServlet {
             mostrarError(request, response, e.getMessage());
         }
     }
-
-    // ------------------------- acciones GET -------------------------
 
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -106,7 +98,6 @@ public class ClienteServlet extends HttpServlet {
                 clienteServicio.actualizarCliente(cliente);
                 registrarMensaje(request, "Cliente actualizado correctamente", "exito");
             }
-            // Patrón Post-Redirect-Get: evita reenviar el formulario al recargar la página
             response.sendRedirect(request.getContextPath() + "/clientes");
         } catch (IllegalArgumentException e) {
             request.setAttribute("error", e.getMessage());
@@ -127,8 +118,6 @@ public class ClienteServlet extends HttpServlet {
         }
         response.sendRedirect(request.getContextPath() + "/clientes");
     }
-
-    // ------------------------- utilidades -------------------------
 
     private Cliente leerCliente(HttpServletRequest request) {
         Cliente cliente = new Cliente();
