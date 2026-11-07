@@ -1,8 +1,5 @@
 package com.tallermecanico.modelo;
 
-/**
- * Entidad Cliente (tabla clientes).
- */
 public class Cliente {
 
     private int idCliente;
