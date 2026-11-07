@@ -12,9 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-/**
- * Página de inicio: muestra el total de clientes y vehículos registrados.
- */
 @WebServlet(name = "InicioServlet", urlPatterns = "/inicio")
 public class InicioServlet extends HttpServlet {
 
