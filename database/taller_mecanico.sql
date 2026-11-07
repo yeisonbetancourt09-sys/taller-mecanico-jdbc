@@ -1,4 +1,3 @@
--- Esquema y datos reales del taller (exportado de MySQL Workbench)
 CREATE DATABASE IF NOT EXISTS taller_mecanico CHARACTER SET utf8mb4;
 USE taller_mecanico;
 
