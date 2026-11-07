@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementación JDBC de ClienteDao. Usa PreparedStatement para evitar inyección SQL.
- */
 public class ClienteDaoJdbc implements ClienteDao {
 
     private static final String SQL_INSERTAR =
