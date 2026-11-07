@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementación JDBC de VehiculoDao.
- */
 public class VehiculoDaoJdbc implements VehiculoDao {
 
     private static final String SQL_INSERTAR =
